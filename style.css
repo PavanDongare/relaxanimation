@@ -1,1 +1,115 @@
+
+body {
+    background: #224941 url('./img/bg.jpg') no-repeat center/cover;
+    min-height: 100vh;
+    overflow: hidden;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    margin: auto;
+    justify-content: center;
+    transform: scale(.75); /*important with abs . without this, whole circle expands a lot*/
+    /* main purpose is scaling size*/
+}
+
+.gradient-circle {
+    background: conic-gradient(
+      #55b7a4 0%,
+      #4ca493 40%,
+      #fff 40%,
+      #fff 60%,
+      #336d62 60%,
+      #2a5b52 100%
+    );
+    height: 105%;
+    width: 105%;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -2; /* decides order of z view*/
+  }
+
+  .circle {
+    background-color: rgb(1, 1, 53);
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .pointer-container{
+      position : absolute;
+      top: -35px;
+      width: 20px;
+      height: 190px;
+      /* to animate rotation , use keyframes 
+       */
+      animation: rotate 7.5s linear forwards infinite;
+      transform-origin: bottom center;
+    
+  }
+
+  .pointer{
+      background-color: white;
+      border-radius: 50%;
+      height: 15px;
+      width: 15px;
+      display: block;
+  }
+
+  @keyframes grow {
+    from {
+      transform: scale(.80);
+    }
   
+    to {
+      transform: scale(1.2);
+    }
+    
+  }
+
+  @keyframes shrink {
+    from {
+      transform: scale(1.2);
+    }
+  
+    to {
+      transform: scale(.80);
+    }
+    
+  }
+
+  .container.grow {
+      animation : grow 3s linear forwards
+  }
+
+  .container.shrink {
+    animation : shrink 3s linear forwards
+}
+
+
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+    
+  }
+
+  
+  
+ 
